@@ -1,0 +1,545 @@
+<!--<?php
+$db_name = 'mysql:host=localhost;dbname_db';
+$user_name = 'root';
+$user_passowrd = '';
+
+$conn = new PDO($db_name, $user_name, $user_passowrd);
+
+if(isset($_POST['send'])){
+
+    $name = $_POST['name'];
+    $name = filter_var($name, FILTER_SANITIZE_STRING);
+    $number = $_POST['number'];
+    $number = filter_var($number, FILTER_SANITIZE_STRING);
+    $email = $_POST['email'];
+    $email = filter_var($email, FILTER_SANITIZE_STRING);
+    $courses = $_POST['courses'];
+    $courses = filter_var($gender, FILTER_SANITIZE_STRING);
+    $gender = $_POST['number'];
+    $gender = filter_var($gender, FILTER_SANITIZE_STRING);
+
+    $select_contact = $conn->prepare("SELECT * FROM `contact_form` WHERE name = ? AND number = ? AND email = ? AND courses = ? AND gender = ?");
+    $select_contact->execute([$name, $number, $email, $courses, $gender]);
+
+    if($select_contact->rowCount() > 0){
+        $message[] = 'already sent message!';
+    }else{
+       $insert_message = $conn->prepare("INSERT INTO `contact_form`(name, number, email, courses, gender) VALUES(?,?,?,?,?)");
+       $insert_messager->execute([$name, $number, $email, $courses, $gender]);
+       $message[] = 'message sent successfully!';
+    }
+}
+?>
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design de site de educação on-line responsivo completo</title>
+
+    <!--swiper css link-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <!--custom css file link-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<!--
+    <?php
+    if(isset($message)){
+        foreach($message as $message){
+            echo '
+                <div class="message">
+                    <span>'.$message.'</span>
+                    <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+                </div>';
+        }
+    }
+    ?>
+-->
+ <!--header section starts-->
+ <header class="header">
+
+     <section class="flex">
+
+         <a href="#home" class="logo">educa.</a>
+
+         <nav class="navbar">
+            <a href="#home">Início</a>
+            <a href="#about">Sobre Nós</a>
+            <a href="#courses">Cursos</a>
+            <a href="#teachers">Professores</a>
+            <a href="#reviews">Avaliações</a>
+            <a href="#contact">Contato</a>
+         </nav>
+
+         <div id="menu-btn" class="fas fa-bars"></div>
+         
+     </section>
+
+ </header>
+<!--header section ends-->
+
+<!--home section starts--> 
+
+<section class="home" id="home">
+
+    <div class="row">
+        <div class="content">
+            <h3>Educação <span>Online</span></h3>
+            <a href="#contact" class="btn">Contate-Nos</a>
+        </div>
+        <div class="image">
+            <img src="images/homg-img.svg" alt="imagem">
+        </div>
+
+    </div>
+</section>
+<!--home sectio ends-->
+
+<!--counter section stars-->
+
+<section class="count">
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <div class="content">
+                <h3>150+</h3>
+                <p>Cursos</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-user-graduate"></i>
+            <div class="content">
+                <h3>1300+</h3>
+                <p>Alunos</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-chalkboard-user"></i>
+            <div class="content">
+                <h3>80+</h3>
+                <p>Professores</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-face-smile"></i>
+            <div class="content">
+                <h3>100%</h3>
+                <p>Satisfação</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!--counter section ends-->
+
+<!--about section starts-->
+
+<section class="about" id="about">
+
+    <div class="row">
+
+        <div class="image">
+            <img src="images/about-img.svg" alt="imagem">
+        </div>
+
+        <div class="content">
+            <h3>Porque escolher-nos?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quibusdam magni error, aut enim rerum?</p>
+            <a href="#contact" class="btn">Contate-Nos</a>
+        </div>
+
+    </div>
+    
+</section>
+
+<!--about section ends-->
+
+<!--courses section starts-->
+
+<section class="courses" id="courses">
+
+    <h1 class="heading"> Nossos <span>Cursos</span></h1>
+
+    <div class="swiper course-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide">
+                <img src="images/course-1.svg" alt="">
+                <h3>Desenvolvimento Web</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quibusdam magni error, aut enim rerum?</p>
+            </div>
+
+            <div class="swiper-slide slide">
+                <img src="images/course-2.svg" alt="">
+                <h3>Marketing Digital</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quibusdam magni error, aut enim rerum?</p>
+            </div>
+
+            <div class="swiper-slide slide">
+                <img src="images/course-3.svg" alt="">
+                <h3>Ciência e Biologia</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quibusdam magni error, aut enim rerum?</p>
+            </div>
+
+            <div class="swiper-slide slide">
+                <img src="images/course-4.svg" alt="">
+                <h3>Design Gráfico</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quibusdam magni error, aut enim rerum?</p>
+            </div>
+
+            <div class="swiper-slide slide">
+                <img src="images/course-5.svg" alt="">
+                <h3>Ensino</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quibusdam magni error, aut enim rerum?</p>
+            </div>
+
+            <div class="swiper-slide slide">
+                <img src="images/course-6.svg" alt="">
+                <h3>Engenharia</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quibusdam magni error, aut enim rerum?</p>
+            </div>
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+    </div>
+
+</section>
+
+<!--courses section ends-->
+
+<!--teachers section starts-->
+
+<section class="teachers" id="teachers">
+
+    <h1 class="heading">Tutores <span>Especialista</span></h1>
+
+    <div class="swiper teachers-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide">
+                <img src="images/tutor-1.png" alt="imagem">
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+                <h3>john deo</h3>
+            </div>
+
+            <div class="swiper-slide slide">
+                <img src="images/tutor-2.png" alt="imagem">
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+                <h3>john deo</h3>
+            </div>
+            
+            <div class="swiper-slide slide">
+                <img src="images/tutor-3.png" alt="imagem">
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+                <h3>john deo</h3>
+            </div>
+
+            
+            <div class="swiper-slide slide">
+                <img src="images/tutor-4.png" alt="imagem">
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+                <h3>john deo</h3>
+            </div>
+
+            <div class="swiper-slide slide">
+                <img src="images/tutor-5.png" alt="imagem">
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+                <h3>john deo</h3>
+            </div>
+
+            
+            <div class="swiper-slide slide">
+                <img src="images/tutor-6.png" alt="imagem">
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+                <h3>john deo</h3>
+            </div>
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+    </div>
+
+</section>
+
+<!--teachers section ends-->
+
+<!--reviews section starts-->
+
+<section class="reviews" id="reviews">
+
+    <h1 class="heading">Avaliações de <span>Alunos</span></h1>
+
+    <div class="swiper reviews-slider"> 
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi eos, quisquam quasi numquam voluptas optio delectus distinctio mollitia ad quidem, molestiae culpa similique eius accusantium quos est officia nihil dolorum?</p>
+                <div class="user">
+                    <img src="images/pic-1.png" alt="imagem">
+                    <div class="user-info">
+                        <h3>john deo</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi eos, quisquam quasi numquam voluptas optio delectus distinctio mollitia ad quidem, molestiae culpa similique eius accusantium quos est officia nihil dolorum?</p>
+                <div class="user">
+                    <img src="images/pic-2.png" alt="imagem">
+                    <div class="user-info">
+                        <h3>john deo</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi eos, quisquam quasi numquam voluptas optio delectus distinctio mollitia ad quidem, molestiae culpa similique eius accusantium quos est officia nihil dolorum?</p>
+                <div class="user">
+                    <img src="images/pic-3.png" alt="imagem">
+                    <div class="user-info">
+                        <h3>john deo</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi eos, quisquam quasi numquam voluptas optio delectus distinctio mollitia ad quidem, molestiae culpa similique eius accusantium quos est officia nihil dolorum?</p>
+                <div class="user">
+                    <img src="images/pic-4.png" alt="imagem">
+                    <div class="user-info">
+                        <h3>john deo</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi eos, quisquam quasi numquam voluptas optio delectus distinctio mollitia ad quidem, molestiae culpa similique eius accusantium quos est officia nihil dolorum?</p>
+                <div class="user">
+                    <img src="images/pic-5.png" alt="imagem">
+                    <div class="user-info">
+                        <h3>john deo</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi eos, quisquam quasi numquam voluptas optio delectus distinctio mollitia ad quidem, molestiae culpa similique eius accusantium quos est officia nihil dolorum?</p>
+                <div class="user">
+                    <img src="images/pic-6.png" alt="imagem">
+                    <div class="user-info">
+                        <h3>john deo</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+    </div>
+
+</section>
+<!--reviews section ends-->
+
+<!--contact section starts-->
+
+<section class="contact" id="contact">
+
+    <h1 class="heading"><span>Contate</span>-Nos</h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="images/contact-img.svg" alt="">
+        </div>
+
+        <form action="" method="post">
+            <span>Seu Nome</span>
+            <input type="text" required placeholder="Escreva seu nome completo" maxlength="50" name="name" class="box">
+            <span>Seu Email</span>
+            <input type="email" required placeholder="Digite seu e-mail valido" maxlength="50" name="email" class="box">
+            <span>Seu Número</span>
+            <input type="number" required placeholder="Digite seu número valido" max="9999999999" min="0" name="number" class="box" onkeypress="if(this.value.length == 10) return false;">
+            <span>Selecione Curso</span>
+            <select name="courses" class="box" required>
+                <option value="" disabled selected>Selecione os Cursos --</option>
+                <option value="web developement">Desenvolvimento Web</option>
+                <option value="science and biology">Ciência e Biologia</option>
+                <option value="engineering">Emgemharia</option>
+                <option value="digital marketing">Marketing Digital</option>
+                <option value="graphic design">Design Gráfico</option>
+                <option value="teaching">Ensino</option>
+                <option value="social studies">Estudos Sociais</option>
+                <option value="data anlysis">Análise de Dados</option>
+                <option value="artificial intelligence">Ainteligência Artificial</option>
+            </select>
+            <span>Selecione Sexo</span>
+            <div class="radio">
+                <input type="radio" name="gender" value="male" id="male">
+                <label for="male">Masculino</label>
+                <input type="radio" name="gender" value="female" id="female">
+                <label for="female">Feminino</label>
+            </div>
+            <input type="submit" value="Enviar mensagem" class="btn" name="send">
+        </form>
+    </div>
+
+</section>
+<!--contact section ends-->
+
+<!--footer section starts-->
+
+<footer class="footer">
+    <section>
+
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-youtube"></a>
+        </div>
+
+        <div class="credit">&copy; Direitos autorais @ 2022 por <span> Wanlley Silva</span> | Todos os direitos reservados!|</div>
+
+    </section>
+
+</footer>
+<!--footer section ends-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--swiper js link!-->
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<!--custom js file link-->
+<script src="script.js"></script>
+
+</body>
+</html>
